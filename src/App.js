@@ -1,3 +1,4 @@
+import { isNode } from "graphql/language/ast";
 import { useEffect, useState } from "react";
 
 const API_URL = "https://test-demo-gql-backend.herokuapp.com/api/rest/data";
@@ -58,7 +59,10 @@ function App() {
     );
 
     const data = await res.json();
-    console.log(data);
+
+    if (res.ok) {
+      window.location.reload();
+    }
   };
 
   console.log(complaints);
