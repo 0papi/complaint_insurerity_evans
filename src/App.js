@@ -49,12 +49,15 @@ function App() {
           "x-hasura-admin-secret": "SECRET",
         },
         method: "POST",
-        body: JSON.stringify({ complaint: complaintData }),
+        body: JSON.stringify({
+          complaint: complaintData.complaint,
+          source: complaintData.source,
+          companyId: complaintData.companyId,
+        }),
       }
     );
 
     const data = await res.json();
-
     console.log(data);
   };
 
